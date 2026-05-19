@@ -64,6 +64,6 @@ class UserView:
     
     @staticmethod
     def get_inputs_delete():
-        """ Prompt user for inputs necessary to add a new user """
+        """ Prompt user for inputs necessary to delete a user """
         id = input("User id : ").strip()
         return id
