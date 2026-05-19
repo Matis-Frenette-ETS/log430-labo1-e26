@@ -42,14 +42,24 @@ class UserDAO:
 
     def update(self, user):
         """ Update given user in MySQL """
-        pass
+        self.cursor.execute(
+            "UPDATE users SET name=%s, email=%s WHERE id=%s",
+            (user.name, user.email, user.id)
+        )
+        self.conn.commit()
+        return self.cursor.lastrowid
 
     def delete(self, user_id):
         """ Delete user from MySQL with given user ID """
+        self.cursor.execute(
+            "DELETE FROM users WHERE id=%s",
+            (user_id,)
+        )
         pass
 
     def delete_all(self): # extra
         """ Empty users table in MySQL """
+        self.cursor.execute("TRUNCATE TABLE users")
         pass
         
     def close(self):
