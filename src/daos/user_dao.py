@@ -55,11 +55,13 @@ class UserDAO:
             "DELETE FROM users WHERE id=%s",
             (user_id,)
         )
+        self.conn.commit()
         pass
 
     def delete_all(self): # extra
         """ Empty users table in MySQL """
         self.cursor.execute("TRUNCATE TABLE users")
+        self.conn.commit()
         pass
         
     def close(self):
