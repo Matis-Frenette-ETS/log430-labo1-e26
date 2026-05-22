@@ -42,7 +42,7 @@ jobs:
         run: |
           sleep 10
           timeout=60
-          until docker exec mongodb mongo --eval "db.adminCommand('ping')" --quiet; do
+          until docker exec mongo mongo --eval "db.adminCommand('ping')" --quiet; do
             echo "Waiting for MongoDB..."
             sleep 3
             timeout=$((timeout - 3))
