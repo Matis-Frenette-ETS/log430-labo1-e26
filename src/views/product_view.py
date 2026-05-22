@@ -19,12 +19,12 @@ class ProductView:
                 products = controller.list_products()
                 ProductView.show_products(products)
             elif choice == '2':
-                name, email = ProductView.get_inputs()
-                product = Product(None, name, email)
+                name, brand, price = ProductView.get_inputs()
+                product = Product(None, name, brand, price)
                 controller.create_product(product)
             elif choice == '3':
-                id, name, email = ProductView.get_inputs_update()
-                product = Product(id, name, email)
+                id, name, brand, price = ProductView.get_inputs_update()
+                product = Product(id, name, brand, price)
                 controller.update_product(product)
             elif choice == '4':
                 product_id = ProductView.get_inputs_delete()
@@ -45,17 +45,19 @@ class ProductView:
     @staticmethod
     def get_inputs():
         """ Prompt product for inputs necessary to add a new product """
-        name = input("Nom d'utilisateur : ").strip()
-        email = input("Adresse courriel : ").strip()
-        return name, email
+        name = input("Nom d'item : ").strip()
+        brand = input("Marque : ").strip()
+        price = input("Prix : ").strip()
+        return name, brand, price
     
     @staticmethod
     def get_inputs_update():
         """ Prompt product for inputs necessary to update a product """
         id = input("Id du product a modifier : ").strip()
-        name = input("Nouveau Nom d'utilisateur : ").strip()
-        email = input("Nouvelle Adresse courriel : ").strip()
-        return id, name, email
+        name = input("Nouveau nom produit : ").strip()
+        brand = input("Nouvelle marque : ").strip()
+        price = input("Nouveau prix : ").strip()
+        return id, name, brand, price
     
     @staticmethod
     def get_inputs_delete():
