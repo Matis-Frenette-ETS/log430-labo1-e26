@@ -19,8 +19,3 @@ J'ai utiliser le modele de conception MVC, product_view n'interagie pas directem
 **Question 4** : Si nous devions créer une application permettant d’associer des achats d'articles aux utilisateurs (`Users` → `Products`), comment structurerions-nous les données dans MySQL par rapport à MongoDB ?
 
 En SQL, nous devrons avoir une table de liaison, tandis que dans MongoDB nous pouvons ajouter l'information achat comme champs d'un user. Ses champs serais donc: id, nom, email, achats. Les achats pourrait etre une liste d'achats. 
-
-**Probleme avec le labo01**
-Mes tests de pytest fonctionne sur docker, mais ne fonctionne pas pendant mon CI sur ma VM.
-
-![alt text](image-3.png)
