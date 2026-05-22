@@ -29,8 +29,10 @@ class UserDAOMongo:
             self.users_collection = self.db["users"] 
         except FileNotFoundError:
             print("Attention : Veuillez créer un fichier .env")
+            raise
         except Exception as e:
             print("Erreur : " + str(e))
+            raise
     
     def select_all(self):
         """Return a list of users matching the filter"""
