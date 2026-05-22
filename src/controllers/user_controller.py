@@ -9,8 +9,8 @@ from daos.user_dao_mongo import UserDAOMongo
 
 class UserController:
     def __init__(self):
-        self.dao = UserDAOMongo()
-        #self.dao = UserDAO()
+        #self.dao = UserDAOMongo()
+        self.dao = UserDAO()
 
     def list_users(self):
         """ List all users """
