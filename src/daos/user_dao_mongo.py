@@ -62,5 +62,6 @@ class UserDAOMongo:
         pass
 
     def delete_all(self):
+        self.users_collection.drop()
         pass
 

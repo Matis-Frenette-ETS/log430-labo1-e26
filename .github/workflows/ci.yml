@@ -10,11 +10,13 @@ jobs:
       - name: Checkout dépot
         uses: actions/checkout@v4
 
-      - name: Créer fichier .env (TODO - utilisez les secrets)
+      - name: Créer fichier .env
         run: |
           echo "MYSQL_HOST=mysql" >> .env
           echo "MONGODB_HOST=mongo" >> .env
           echo "MYSQL_DB_NAME=labo01_db" >> .env
+          echo "MONGO_DB_NAME=labo01_db" >> .env
+          echo "MONGO_PORT=27017=labo01_db" >> .env
           echo "DB_USERNAME=labo01" >> .env
           echo "DB_PASSWORD=labo01" >> .env
 
@@ -44,7 +46,9 @@ jobs:
 
       - name: Éxécuter les tests
         run: |
+          echo "User Tests..."
           docker exec store_manager_cli pytest ./src/tests/test_user.py
+          echo "Product Tests..."
           docker exec store_manager_cli pytest ./src/tests/test_product.py
 
       - name: Cleanup
