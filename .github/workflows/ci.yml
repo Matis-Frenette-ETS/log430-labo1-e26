@@ -37,21 +37,10 @@ jobs:
             fi
           done
           sleep 5
-
+       
       - name: Attendre MongoDB
         run: |
-          sleep 10
-          timeout=60
-          until docker exec mongo mongo --eval "db.adminCommand('ping')" --quiet; do
-            echo "Waiting for MongoDB..."
-            sleep 3
-            timeout=$((timeout - 3))
-            if [ $timeout -le 0 ]; then
-              echo "MongoDB failed to start"
-              exit 1
-            fi
-          done
-          sleep 5
+          sleep 10     
 
       - name: Éxécuter les tests (TODO - ajouter test_products)
         run: docker exec store_manager_cli pytest ./src/tests/test_user.py
